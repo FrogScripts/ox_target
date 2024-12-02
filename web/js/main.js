@@ -10,30 +10,30 @@ window.addEventListener("message", (event) => {
   switch (event.data.event) {
     case "visible": {
       body.style.visibility = event.data.state ? "visible" : "hidden";
-      $('#eyeSvg').css('transform', 'translateY(0px)');
-      $('.iconClass').removeClass('fa-check');
-      $('#eyeSvg').css('color', 'white');
-      $('.center').text('');
-      $('.iconClass').addClass('fa-question');
+      eye.style.transform = 'translateY(0px)';
+      document.querySelectorAll('.iconClass').forEach(el => el.classList.remove('fa-check'));
+      eye.style.color = 'white';
+      document.querySelector('.center').textContent = '';
+      document.querySelectorAll('.iconClass').forEach(el => el.classList.add('fa-question'));
       return eye.classList.remove("eye-hover");
     }
 
     case "leftTarget": {
-      $('.center').text('');
-      $('#eyeSvg').css('transform', 'translateY(0px)');
-      $('.iconClass').removeClass('fa-check');
-      $('#eyeSvg').css('color', 'white');
-      $('.iconClass').addClass('fa-question');
+      document.querySelector('.center').textContent = '';
+      eye.style.transform = 'translateY(0px)';
+      document.querySelectorAll('.iconClass').forEach(el => el.classList.remove('fa-check'));
+      eye.style.color = 'white';
+      document.querySelectorAll('.iconClass').forEach(el => el.classList.add('fa-question'));
       return eye.classList.remove("eye-hover");
     }
 
     case "setTarget": {
-      $('.center').text('');
+      document.querySelector('.center').textContent = '';
       eye.style.fill = '#cfd2da';
-      $('#eyeSvg').css('transform', 'translateY(30px)');
-      $('#eyeSvg').css('color', 'rgb(0,247,181)');
-      $('.iconClass').removeClass('fa-question');
-      $('.iconClass').addClass('fa-check');
+      eye.style.transform = 'translateY(30px)';
+      eye.style.color = 'rgb(0,247,181)';
+      document.querySelectorAll('.iconClass').forEach(el => el.classList.remove('fa-question'));
+      document.querySelectorAll('.iconClass').forEach(el => el.classList.add('fa-check'));
       eye.classList.add("eye-hover");
 
       if (event.data.options) {

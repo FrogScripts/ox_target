@@ -22,19 +22,24 @@ export function createOptions(type, data, id, zoneId) {
   option.targetType = type;
   option.targetId = id;
   option.zoneId = zoneId;
-  $('.center').text(data.label);
+  document.querySelector('.center').textContent = data.label;
   option.addEventListener("click", onClick);
   optionsWrapper.appendChild(option);
 
-  $(".option-container").hover((e) => {
-    $(".option-icon").css("color", e.type === "mouseenter" ? "white" : "rgba(255,255,255,0.5)");
+  document.querySelectorAll(".option-container").forEach(el => {
+    el.addEventListener("mouseenter", (e) => {
+      el.querySelector(".option-icon").style.color = "white";
+    });
+    el.addEventListener("mouseleave", (e) => {
+      el.querySelector(".option-icon").style.color = "rgba(255,255,255,0.5)";
+    });
   });
 
   let icons = document.querySelectorAll('.option-icon');
   for (let i = 0, l = icons.length; i < l; i++) {
-    if (!$(icons[i]).hasClass('fas')) {
-      $(icons[i]).addClass('fa-solid fa-question');
-      $(icons[i]).css('color', 'white');
+    if (!icons[i].classList.contains('fas')) {
+      icons[i].classList.add('fa-solid', 'fa-question');
+      icons[i].style.color = 'white';
     }
   }
 
@@ -44,15 +49,15 @@ export function createOptions(type, data, id, zoneId) {
     radialItems[i].style.top = (50 + 35 * Math.sin(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
   }
 
-  $(option).mouseleave(function() {
-    $(option).css({ opacity: 0.8 });
-    $('.center').text('Hover on the option');
-    $('.center').css({ opacity: 0.0 });
+  option.addEventListener("mouseleave", function() {
+    option.style.opacity = 0.8;
+    document.querySelector('.center').textContent = 'Hover on the option';
+    document.querySelector('.center').style.opacity = 0.0;
   });
 
-  $(option).mouseenter(function() {
-    $(option).css({ opacity: 1 });
-    $('.center').css({ opacity: 1 });
-    $('.center').text(data.label);
+  option.addEventListener("mouseenter", function() {
+    option.style.opacity = 1;
+    document.querySelector('.center').style.opacity = 1;
+    document.querySelector('.center').textContent = data.label;
   });
 }
