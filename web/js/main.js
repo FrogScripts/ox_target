@@ -10,14 +10,30 @@ window.addEventListener("message", (event) => {
   switch (event.data.event) {
     case "visible": {
       body.style.visibility = event.data.state ? "visible" : "hidden";
+      $('#eyeSvg').css('transform', 'translateY(0px)');
+      $('.iconClass').removeClass('fa-check');
+      $('#eyeSvg').css('color', 'white');
+      $('.center').text('');
+      $('.iconClass').addClass('fa-question');
       return eye.classList.remove("eye-hover");
     }
 
     case "leftTarget": {
+      $('.center').text('');
+      $('#eyeSvg').css('transform', 'translateY(0px)');
+      $('.iconClass').removeClass('fa-check');
+      $('#eyeSvg').css('color', 'white');
+      $('.iconClass').addClass('fa-question');
       return eye.classList.remove("eye-hover");
     }
 
     case "setTarget": {
+      $('.center').text('');
+      eye.style.fill = '#cfd2da';
+      $('#eyeSvg').css('transform', 'translateY(30px)');
+      $('#eyeSvg').css('color', 'rgb(0,247,181)');
+      $('.iconClass').removeClass('fa-question');
+      $('.iconClass').addClass('fa-check');
       eye.classList.add("eye-hover");
 
       if (event.data.options) {
