@@ -7,15 +7,13 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: "Barlow Condensed", sans-serif;
+  color: #ffffff;
 }
 
 p {
   margin: 0;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
-}
 
 #eye {
   position: absolute;
@@ -43,7 +41,7 @@ p {
 
 .option-icon:hover {
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.05);
   filter: drop-shadow(0px 0px 35px 15px rgb(0, 255, 179));
 }
 
@@ -125,7 +123,6 @@ p {
   position: absolute;
   right: 0;
   text-align: center;
-  top: 0;
   width: 230px;
   transition: all 0.4s ease-out;
 }
@@ -140,7 +137,6 @@ a {
   transition: all 0.3s;
   outline: 0;
 }
-
 
 .menu-item {
   display: block;
@@ -158,22 +154,6 @@ a {
   opacity: 0; 
   animation: fadeIn 0.2s ease-out forwards;
 }
-
-
-
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: skew(15deg) translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: skew(0deg) translateY(0px);
-  }
-}
-
-
 
 .menu-item:nth-child(1) {
   animation-delay: 0.1s;
@@ -205,7 +185,6 @@ a {
 .menu-item:nth-child(10) {
   animation-delay: 1s;
 }
-
 
 .menu-item:hover {
   transform: scale(1.4);
@@ -258,12 +237,10 @@ a {
   opacity: 0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   transition: opacity 0.6s;
-  font-size:1.3rem;
-  margin-right:1.5rem;
-
-  z-index:10;
+  font-size: 1.3rem;
+  margin-right: 1.5rem;
+  z-index: 10;
   top: 20%;
- 
   transform: translate(-50%, -20%);
 }
 
